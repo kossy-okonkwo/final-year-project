@@ -27,7 +27,7 @@
    <!-- Animate CSS -->
    <link rel="stylesheet" href="css/animate.min.css">
    <!-- Custom CSS -->
-   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="css/style.css">
    <!-- Modernize js -->
    <script src="js/modernizr-3.6.0.min.js"></script>
 </head>
@@ -48,17 +48,9 @@
                <li class="nav-item active">
                   <a class="nav-link navbar-login-btn1" href="index.html">Home <span class="sr-only">(current)</span></a>
                </li>
-             <!--  <li class="nav-item">
-                  <a class="nav-link" href="#">Features</a>
-               </li>
+               
                <li class="nav-item">
-                  <a class="nav-link" href="#">Pricing</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="#">Blog</a>
-               </li>-->
-               <li class="nav-item">
-                  <a class="nav-link navbar-login-btn" href="register.html">sign up</a>
+                  <a class="nav-link navbar-login-btn" href="login.html">Login</a>
                </li>
 
             </ul>
@@ -72,38 +64,54 @@
 
    <section class="login">
       <div class="col-lg-9 mx-auto">
-
+         <div class="login-header">
+            <h4 class="">Welcome, please sign up</h4>
+         </div>
 
          <div class="row">
             <div class="col-md-5">
                <div class="">
-                  <img src="./img/Illustration - Our Methodologies.svg" />
+                  <img src="./img/Illustration - Enjoy Process.svg" />
                </div>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-6">
-               <div class="login-header">
-                  <h4 class="">Welcome, please sign in</h4>
-               </div>
                <div class="">
                   <form>
+                     <div class="row">
+                        <div class="col-6">
+                           <div class="form-group position-relative">
+                              <input type="email" class="form-control login-input" id="exampleInputEmail1"
+                                 aria-describedby="emailHelp" placeholder="matric number">
+                              <i class="login-icn flaticon-user"></i>
+                           </div>
+                        </div>
+                        <div class="col-6">
+                           <div class="form-group position-relative">
+                              <input type="email" class="form-control login-input" id="exampleInputEmail1"
+                                 aria-describedby="emailHelp" placeholder="Surname">
+                              <i class="login-icn flaticon-list"></i>
+                           </div>
+                        </div>
+                     </div>
+
 
                      <div class="form-group position-relative">
                         <input type="email" class="form-control login-input" id="exampleInputEmail1"
-                           aria-describedby="emailHelp" placeholder="Matric Number" required="">
+                           aria-describedby="emailHelp" placeholder="Enter email">
                         <i class="login-icn flaticon-mail"></i>
                      </div>
 
                      <div class="form-group position-relative">
                         <input type="password" class="form-control login-input" id="exampleInputPassword1"
-                           placeholder="Password" required>
+                           placeholder="Password">
 
                         <i class="login-icn flaticon-settings"></i>
                      </div>
                      <div class="form-row pt-3">
                         <div class="col-6">
                            <div class="form-group form-check">
-                              <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
                               <label class="form-check-label" for="exampleCheck1">Remember me</label>
                            </div>
                         </div>
@@ -134,14 +142,6 @@ fgfbg
          color: #000;
       }
 
-      .navbar-login-btn {
-         background: #000;
-         color: #fff !important;
-         padding: 5px 30px !important;
-         border-radius: 5px;
-         text-transform: capitalize;
-         font-size: 1.5rem;
-      }
       .navbar-login-btn1 {
          background: linear-gradient(45deg, #ff8830, #ffc450ed);
          color: #fff !important;
@@ -150,12 +150,20 @@ fgfbg
          text-transform: capitalize;
          font-size: 1.5rem;
       }
+      .navbar-login-btn {
+         background: #000;
+         color: #fff !important;
+         padding: 5px 30px !important;
+         border-radius: 5px;
+         text-transform: capitalize;
+         font-size: 1.5rem;
+      }
+      
 
       .navbar-nav .nav-item {
          padding: 0px 10px;
          margin: 8px 0px;
          color: #000;
-
       }
 
       .login {
@@ -184,7 +192,7 @@ fgfbg
 
       .login-header {
          padding: 0px 0px 90px 0px;
-         text-align: left;
+         text-align: center;
       }
 
       .login-header h4 {
@@ -201,7 +209,10 @@ fgfbg
          background: red;
          color: #000;
       }
-      
+
+      .form-check-label{
+         font-size: 1.5rem !important;
+      }
    </style>
 
 
