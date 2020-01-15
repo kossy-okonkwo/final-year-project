@@ -1,23 +1,28 @@
 package com.isoft.student;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+
+import javax.persistence.Column;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 /**
  * Created by mac on 12/11/2019.
  */
 public class NewStudentCmd {
-	@NotEmpty
+	
+	@NotBlank
+	@Pattern ( regexp = "[pfPF](nd|ND)\\d{2}321\\d{3}")
 	private String matricNo;
-	@Min ( value = 6)
 	@NotBlank
 	private String password;
-	private LocalDate createdOn;
-	private Boolean active = true;
-	private String role;
+	private String surname;
+	@NotBlank
+	@Email
+	private String email;
 	
 	public String getMatricNo () {
 		return matricNo;
@@ -35,27 +40,19 @@ public class NewStudentCmd {
 		this.password = password;
 	}
 	
-	public LocalDate getCreatedOn () {
-		return createdOn;
+	public void setSurname ( String surname ) {
+		this.surname = surname;
 	}
 	
-	public void setCreatedOn ( LocalDate createdOn ) {
-		this.createdOn = createdOn;
+	public void setEmail ( String email ) {
+		this.email = email;
 	}
 	
-	public Boolean getActive () {
-		return active;
+	public String getSurname () {
+		return surname;
 	}
 	
-	public void setActive ( Boolean active ) {
-		this.active = active;
-	}
-	
-	public String getRole () {
-		return role;
-	}
-	
-	public void setRole ( String role ) {
-		this.role = role;
+	public String getEmail () {
+		return email;
 	}
 }

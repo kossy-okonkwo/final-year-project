@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html class="no-js"  lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
 <!-- Mirrored from www.radiustheme.com/demo/html/psdboss/akkhor/akkhor/ui-tab.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 May 2019 00:39:24 GMT -->
@@ -9,7 +9,7 @@
 <head>
    <meta charset="utf-8">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
-   <title>YABATECH | Login</title>
+   <title>YABATECH | Admin Login</title>
    <meta name="description" content="">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <!-- Favicon -->
@@ -46,11 +46,19 @@
            
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                <li class="nav-item active">
-                  <a class="nav-link navbar-login-btn1" href="index.html" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link navbar-login-btn1" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
                </li>
-               
+             <!--  <li class="nav-item">
+                  <a class="nav-link" href="#">Features</a>
+               </li>
                <li class="nav-item">
-                  <a class="nav-link navbar-login-btn" href="login.html" th:href="@{/login}">Login</a>
+                  <a class="nav-link" href="#">Pricing</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Blog</a>
+               </li>-->
+               <li class="nav-item">
+                  <!--<a class="nav-link navbar-login-btn" th:href="@{/register-admin}">Sign Up</a>-->
                </li>
 
             </ul>
@@ -59,69 +67,51 @@
       </div>
    </nav>
 
-
-
+   <span class="text-green pull-right" th:text="${message}"></span>
 
    <section class="login">
       <div class="col-lg-9 mx-auto">
-         <div class="login-header">
-            <h4 class="">Student Sign Up</h4>
-         </div>
+
 
          <div class="row">
             <div class="col-md-5">
                <div class="">
-                  <img src="./img/Illustration - Enjoy Process.svg" />
+                  <img src="./img/Illustration - Our Methodologies.svg" />
                </div>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-6">
+               <div class="login-header">
+                  <h4 class="">Welcome Admin, please sign in</h4>
+               </div>
+               <div id="invalid" th:if="${param.error}" th:text="${'Invalid Login Credentials'}" th:class="${'alert alert-danger text-danger'}"></div>
                <div class="">
-                  <form method="post" th:action="@{/register}" th:object="${student}">
-                  <div th:class="${#fields.hasErrors('*')}  ? 'alert alert-danger' : 'hidden'">
-                        <li th:each="e : ${#fields.detailedErrors()}" th:attr="field=${e.fieldName}"
-                            th:text="${e.message}"></li>
-                  </div>
-
-
-                     <div class="row">
-                        <div class="col-6">
-                           <div class="form-group position-relative">
-                              <input type="text" class="form-control login-input" id="matricNo" th:name="${matricNo}"
-                                 aria-describedby="matricNo" th:field="*{matricNo}" placeholder="matric number" required>
-                              <i class="login-icn flaticon-user"></i>
-                           </div>
-                        </div>
-                        <div class="col-6">
-                           <div class="form-group position-relative">
-                              <input type="text" class="form-control login-input" id="surname" th:name="${surname}"
-                                 aria-describedby="surname" th:field="*{surname}" placeholder="Surname" required>
-                              <i class="login-icn flaticon-list"></i>
-                           </div>
-                        </div>
-                     </div>
-
+                  <form th:action="@{/login}" method="post">
 
                      <div class="form-group position-relative">
-                        <input type="email" class="form-control login-input" id="emailHelp" th:name="${email}"
-                           aria-describedby="emailHelp" th:field="*{email}" placeholder="Enter email" required>
+                        <input type="text" class="form-control login-input" id="username" name="username"
+                           aria-describedby="username" placeholder="Username" required="">
                         <i class="login-icn flaticon-mail"></i>
                      </div>
 
                      <div class="form-group position-relative">
-                        <input type="password" class="form-control login-input" id="password"
-                               name="password" th:field="*{password}" placeholder="Password" required>
+                        <input type="password" class="form-control login-input" id="password" name="password"
+                           placeholder="Password" required>
+
                         <i class="login-icn flaticon-settings"></i>
                      </div>
                      <div class="form-row pt-3">
                         <div class="col-6">
-                           <input type="submit" value="Sign Up" class="login-btn" />
+                           <div class="form-group form-check">
+                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                              <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                           </div>
                         </div>
                         <div class="col-6 text-right">
-                           <p></p>
-                           <!--<a href="#!" class="forget-password">Forget password</a>-->
+                           <a href="#!" class="forget-password">Forgot password</a>
                         </div>
                      </div>
+                     <input type="submit" value="Sign In" class="login-btn" />
                   </form>
                </div>
             </div>
@@ -144,14 +134,6 @@ fgfbg
          color: #000;
       }
 
-      .navbar-login-btn1 {
-         background: linear-gradient(45deg, #ff8830, #ffc450ed);
-         color: #fff !important;
-         padding: 5px 30px !important;
-         border-radius: 5px;
-         text-transform: capitalize;
-         font-size: 1.5rem;
-      }
       .navbar-login-btn {
          background: #000;
          color: #fff !important;
@@ -160,12 +142,20 @@ fgfbg
          text-transform: capitalize;
          font-size: 1.5rem;
       }
-      
+      .navbar-login-btn1 {
+         background: linear-gradient(45deg, #ff8830, #ffc450ed);
+         color: #fff !important;
+         padding: 5px 30px !important;
+         border-radius: 5px;
+         text-transform: capitalize;
+         font-size: 1.5rem;
+      }
 
       .navbar-nav .nav-item {
          padding: 0px 10px;
          margin: 8px 0px;
          color: #000;
+
       }
 
       .login {
@@ -194,7 +184,7 @@ fgfbg
 
       .login-header {
          padding: 0px 0px 90px 0px;
-         text-align: center;
+         text-align: left;
       }
 
       .login-header h4 {
@@ -211,10 +201,7 @@ fgfbg
          background: red;
          color: #000;
       }
-
-      .form-check-label{
-         font-size: 1.5rem !important;
-      }
+      
    </style>
 
 

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<!-- Mirrored from www.radiustheme.com/demo/html/psdboss/akkhor/akkhor/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 May 2019 00:39:04 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
+<head th:fragment="head">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>YABATECH | Home </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="fonts/flaticon.css">
+    <!-- Full Calender CSS -->
+    <link rel="stylesheet" href="css/fullcalendar.min.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="css/animate.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Modernize js -->
+    <script src="js/modernizr-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <!-- Preloader Start Here -->
+    <div id="preloader"></div>
+    <!-- Preloader End Here -->
+    <div id="wrapper" class="wrapper bg-ash">
+        <!-- Header Menu Area Start Here -->
+        <div th:fragment="header" class="navbar navbar-expand-md header-menu-one bg-light">
+            <div class="nav-bar-header-one">
+                <div class="header-logo">
+                    <a th:href="@{/}">
+                        <img src="img/logoyct.png" alt="logo" style="height: 5em; width: 5em; margin: 20px;">
+                    </a>
+                </div>
+
+                <div class="toggle-button sidebar-toggle">
+                    <button type="button" class="item-link">
+                        <span class="btn-icon-wrap">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="d-md-none mobile-nav-bar">
+                <button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse"
+                        data-target="#mobile-navbar" aria-expanded="false">
+                    <i class="far fa-arrow-alt-circle-down"></i>
+                </button>
+                <button type="button" class="navbar-toggler sidebar-toggle-mobile">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="header-main-menu collapse navbar-collapse" id="mobile-navbar">
+                <ul class="navbar-nav">
+                    <!--<li class="navbar-item header-search-bar">-->
+                    <!--&lt;!&ndash;<div class="input-group stylish-input-group">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span class="input-group-addon">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<button type="submit">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span class="flaticon-search" aria-hidden="true"></span>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</button>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;<input type="text" class="form-control" placeholder="Find Something . . .">&ndash;&gt;&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--</li>-->
+                </ul>
+
+                <li class="navbar-item dropdown header-language">
+                    <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                       aria-expanded="false"><i class="fas fa-power-off palette-Red-500 text" ></i></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" th:href="@{/logout}">Logout</a>
+                        <a class="dropdown-item" sec:authorize="hasRole('ADMIN')" th:href="@{/register-admin}" href="#">Create New Admin</a>
+                        <a class="dropdown-item" sec:authorize="hasRole('ADMIN')" th:href="@{/all-student}" href="#">Manage Students</a>
+                    </div>
+                </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Header Menu Area End Here -->
+        <!-- Page Area Start Here -->
+            <div class="dashboard-page-one">
+                <!-- Sidebar Area Start Here -->
+                <div th:fragment="sidebar" class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color">
+                    <div class="mobile-sidebar-header d-md-none">
+                        <div class="header-logo">
+                            <a href="index.html"><img src="img/logo1.png" alt="logo"></a>
+                        </div>
+                    </div>
+                    <div  class="sidebar-menu-content">
+                        <ul class="nav nav-sidebar-menu sidebar-toggle-view">
+                            <li class="nav-item sidebar-nav-item">
+                                <a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Dashboard</span></a>
+                                <ul class="nav sub-group-menu">
+                                    <li class="nav-item">
+                                        <a th:href="@{/}" class="nav-link"><i class="fas fa-angle-right"></i>Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="all-student.html" th:href="@{/all-student}" class="nav-link"><i
+                                                class="fas fa-angle-right"></i>Students</a>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+                            <li class="nav-item sidebar-nav-item">
+                                <a href="#" class="nav-link"><i class="flaticon-classmates"></i><span>Students</span></a>
+                                <ul class="nav sub-group-menu">
+                                    <li class="nav-item">
+                                        <a th:href="@{/all-student}" class="nav-link"><i class="fas fa-angle-right"></i>All
+                                            Students</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" th:href="@{/all-subject}" class="nav-link"><i
+                                                class="fas fa-angle-right"></i>ND1</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link"><i
+                                                class="fas fa-angle-right"></i>ND2</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link"><i
+                                                class="fas fa-angle-right"></i>ND3</a>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link"><i
+                                                class="fas fa-angle-right"></i>HND1</a>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link"><i
+                                                class="fas fa-angle-right"></i>HND2</a>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link"><i
+                                                class="fas fa-angle-right"></i>HND3</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item sidebar-nav-item">
+                                <a href="#" class="nav-link"><i class="flaticon-couple"></i><span>School Officers</span></a>
+                                <ul class="nav sub-group-menu">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link"><i class="fas fa-angle-right"></i>All
+                                            School Officers</a>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+                            <li class="nav-item sidebar-nav-item">
+                                <a href="#" class="nav-link"><i class="flaticon-couple"></i><span>Class Advisors</span></a>
+                                <ul class="nav sub-group-menu">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link"><i class="fas fa-angle-right"></i>All
+                                            Class Advisors</a>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+                            <li class="nav-item sidebar-nav-item">
+                                <a href="#" class="nav-link"><i class="flaticon-couple"></i><span>Project Supervisors</span></a>
+                                <ul class="nav sub-group-menu">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link"><i class="fas fa-angle-right"></i>ND3 Supervisors</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link"><i class="fas fa-angle-right"></i>HND3 Supervisors</a>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+                            <li class="nav-item sidebar-nav-item">
+                                <a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Time Tables</span></a>
+                                <ul class="nav sub-group-menu">
+                                    <li class="nav-item">
+                                        <a href="all-class.html" th:href="@{/all-class}" class="nav-link"><i class="fas fa-angle-right"></i>ND1 Time Table</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link"><i class="fas fa-angle-right"></i>ND2 Time Table</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link"><i class="fas fa-angle-right"></i>ND3 Time Table</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link"><i class="fas fa-angle-right"></i>HND1 Time Table</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link"><i class="fas fa-angle-right"></i>HND2 Time Table</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link"><i class="fas fa-angle-right"></i>HND3 Time Table</a>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+                            <li class="nav-item sidebar-nav-item">
+                                <a href="#" class="nav-link"><i class="flaticon-books"></i><span>Library</span></a>
+                                <ul class="nav sub-group-menu">
+                                    <li class="nav-item">
+                                        <a href="all-book.html" th:href="@{/all-book}" class="nav-link"><i class="fas fa-angle-right"></i>All
+                                            Book</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link"><i class="fas fa-angle-right"></i>Add New
+                                            Book</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Sidebar Area End Here -->
+                <div class="dashboard-content-one">
+                    <!-- Breadcubs Area Start Here -->
+                    <div class="breadcrumbs-area" th:fragment="breadcrumb (optionalFirstText,compulsorySecondText,optionalThirdText)">
+                        <h3 th:text="${compulsorySecondText}">Compulsory First Text</h3>
+                        <ul>
+                            <li>
+                                <a href="index.html" th:href="@{/}" >Home</a>
+                            </li>
+                            <li th:text="|${optionalFirstText} ${compulsorySecondText} ${optionalThirdText} |"></li>
+                        </ul>
+                    </div>
+                    <!-- Breadcubs Area End Here -->
+                <!-- Dashboard Content Start Here -->
+                <div>
+
+                </div>
+                <!-- Dashboard Content End Here -->
+                <!-- Social Media Start Here -->
+
+                <!-- Social Media End Here -->
+                <!-- Footer Area Start Here -->
+                <footer th:fragment="footer" class="footer-wrap-layout1">
+                    <div class="copyright">© Copyrights <a href="#">E3 Project Group</a> 2019. All rights reserved. Designed by <a
+                            href="#">ISoft</a></div>
+                </footer>
+                <!-- Footer Area End Here -->
+            </div>
+        </div>
+    <!-- Page Area End Here -->
+    </div>
+    <!-- jquery-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Counterup Js -->
+    <script src="js/jquery.counterup.min.js"></script>
+    <!-- Moment Js -->
+    <script src="js/moment.min.js"></script>
+    <!-- Waypoints Js -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <!-- Scroll Up Js -->
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <!-- Full Calender Js -->
+    <script src="js/fullcalendar.min.js"></script>
+    <!-- Chart Js -->
+    <script src="js/Chart.min.js"></script>
+    <!-- Custom Js -->
+    <script src="js/main.js"></script>
+</body>
+</html>

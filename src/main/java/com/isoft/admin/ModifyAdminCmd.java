@@ -1,21 +1,22 @@
-package com.isoft.student;
+package com.isoft.admin;
 
-import javax.persistence.Column;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
 
 /**
- * Created by mac on 12/11/2019.
+ * Created by mac on 24/12/2019.
  */
-public class ModifyStudentCmd {
+public class ModifyAdminCmd {
 	
 	@NotNull
 	private Long id;
 	@NotBlank
-	@Pattern ( regexp = "[pfPF](nd|ND)\\d{2}321\\d{3}")
-	private String matricNo;
+	private String username;
 	@NotBlank
-	 private String password;
+	private String password;
 	@NotBlank
 	private String surname;
 	@NotBlank
@@ -23,12 +24,20 @@ public class ModifyStudentCmd {
 	private String email;
 	private LocalDate updatedOn;
 	
-	public String getMatricNo () {
-		return matricNo;
+	public Long getId () {
+		return id;
 	}
 	
-	public void setMatricNo ( String matricNo ) {
-		this.matricNo = matricNo;
+	public void setId ( Long id ) {
+		this.id = id;
+	}
+	
+	public String getUsername () {
+		return username;
+	}
+	
+	public void setUsername ( String username ) {
+		this.username = username;
 	}
 	
 	public String getPassword () {
@@ -61,13 +70,5 @@ public class ModifyStudentCmd {
 	
 	public void setUpdatedOn ( LocalDate updatedOn ) {
 		this.updatedOn = updatedOn;
-	}
-	
-	public Long getId () {
-		return id;
-	}
-	
-	public void setId ( Long id ) {
-		this.id = id;
 	}
 }

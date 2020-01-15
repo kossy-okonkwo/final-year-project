@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
 <!-- Mirrored from www.radiustheme.com/demo/html/psdboss/akkhor/akkhor/notice-board.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 May 2019 00:39:22 GMT -->
@@ -41,7 +41,7 @@
     <!-- Preloader End Here -->
     <div id="wrapper" class="wrapper bg-ash">
         <!-- Header Menu Area Start Here -->
-        <div class="navbar navbar-expand-md header-menu-one bg-light">
+        <div th:include="index :: header"    class="navbar navbar-expand-md header-menu-one bg-light">
             <div class="nav-bar-header-one">
                 <div class="header-logo">
                     <a href="index.html">
@@ -108,7 +108,7 @@
         <!-- Page Area Start Here -->
         <div class="dashboard-page-one">
             <!-- Sidebar Area Start Here -->
-            <div class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color">
+            <div  th:insert="index :: sidebar" class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color">
                 <div class="mobile-sidebar-header d-md-none">
                     <div class="header-logo">
                         <a href="index.html"><img src="img/logo1.png" alt="logo"></a>
@@ -357,7 +357,7 @@
                     </div>
                     <!-- All Notice Area End Here -->
                 </div>
-                <footer class="footer-wrap-layout1">
+                <footer th:insert="index :: footer" class="footer-wrap-layout1">
                     <div class="copyright">© Copyrights <a href="#">The E3 Project Group</a> 2019. All rights reserved. Designed by
                         <a href="#">E3</a></div>
                 </footer>

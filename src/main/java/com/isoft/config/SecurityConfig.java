@@ -1,7 +1,7 @@
 package com.isoft.config;
 
 
-import com.isoft.util.UserPrincipalDetailsService;
+import com.isoft.util.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +20,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private UserPrincipalDetailsService userPrincipalDetailsService;
+    private UserDetailsServiceImpl userPrincipalDetailsService;
 
     
     @Override
@@ -39,15 +39,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .requestMatchers ( PathRequest.toStaticResources ().atCommonLocations () ).permitAll ()
                 .antMatchers("/").authenticated()
-//                .antMatchers("/user/**").hasRole("ADMIN")
+                .antMatchers("/all-**").authenticated()
+                .antMatchers("/student-list").authenticated()
+                .antMatchers("/**-event").authenticated()
                 .antMatchers("/login").permitAll()
+                .antMatchers("/register").permitAll()
+                .antMatchers("/login-admin").permitAll()
+                .antMatchers("/register-admin").hasRole ( "ADMIN" )
                 .and()
                 .formLogin()
                 .loginPage("/login")
                 .and()
                 .logout()
                 .deleteCookies("JSESSIONID")
-                .logoutUrl("/logout").logoutSuccessUrl("/logout/?logout");
+                .logoutUrl("/logout").logoutSuccessUrl("/login");
     }
 
     @Bean

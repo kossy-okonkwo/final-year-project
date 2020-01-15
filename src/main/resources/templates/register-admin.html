@@ -9,7 +9,7 @@
 <head>
    <meta charset="utf-8">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
-   <title>YABATECH | Login</title>
+   <title>YABATECH | Admin Register</title>
    <meta name="description" content="">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <!-- Favicon -->
@@ -50,7 +50,7 @@
                </li>
                
                <li class="nav-item">
-                  <a class="nav-link navbar-login-btn" href="login.html" th:href="@{/login}">Login</a>
+                  <a class="nav-link navbar-login-btn" href="login.html" th:href="@{/login-admin}">Login</a>
                </li>
 
             </ul>
@@ -65,7 +65,7 @@
    <section class="login">
       <div class="col-lg-9 mx-auto">
          <div class="login-header">
-            <h4 class="">Student Sign Up</h4>
+            <h4 class="">Create New Admin</h4>
          </div>
 
          <div class="row">
@@ -77,7 +77,7 @@
             <div class="col-md-1"></div>
             <div class="col-md-6">
                <div class="">
-                  <form method="post" th:action="@{/register}" th:object="${student}">
+                  <form method="post" th:action="@{/register-admin}" th:object="${admin}">
                   <div th:class="${#fields.hasErrors('*')}  ? 'alert alert-danger' : 'hidden'">
                         <li th:each="e : ${#fields.detailedErrors()}" th:attr="field=${e.fieldName}"
                             th:text="${e.message}"></li>
@@ -87,8 +87,8 @@
                      <div class="row">
                         <div class="col-6">
                            <div class="form-group position-relative">
-                              <input type="text" class="form-control login-input" id="matricNo" th:name="${matricNo}"
-                                 aria-describedby="matricNo" th:field="*{matricNo}" placeholder="matric number" required>
+                              <input type="text" class="form-control login-input" id="username" th:name="${username}"
+                                 aria-describedby="username" th:field="*{username}" placeholder="Username" required>
                               <i class="login-icn flaticon-user"></i>
                            </div>
                         </div>
@@ -108,11 +108,11 @@
                         <i class="login-icn flaticon-mail"></i>
                      </div>
 
-                     <div class="form-group position-relative">
-                        <input type="password" class="form-control login-input" id="password"
-                               name="password" th:field="*{password}" placeholder="Password" required>
-                        <i class="login-icn flaticon-settings"></i>
-                     </div>
+                     <!--<div class="form-group position-relative">-->
+                        <!--<input type="password" class="form-control login-input" id="password"-->
+                               <!--name="password" th:field="*{password}" placeholder="Password" required>-->
+                        <!--<i class="login-icn flaticon-settings"></i>-->
+                     <!--</div>-->
                      <div class="form-row pt-3">
                         <div class="col-6">
                            <input type="submit" value="Sign Up" class="login-btn" />

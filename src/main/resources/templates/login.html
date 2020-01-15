@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html class="no-js"  lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
 <!-- Mirrored from www.radiustheme.com/demo/html/psdboss/akkhor/akkhor/ui-tab.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 May 2019 00:39:24 GMT -->
@@ -9,7 +9,7 @@
 <head>
    <meta charset="utf-8">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
-   <title>YABATECH | Login</title>
+   <title>YABATECH | Student Login</title>
    <meta name="description" content="">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <!-- Favicon -->
@@ -46,7 +46,7 @@
            
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                <li class="nav-item active">
-                  <a class="nav-link navbar-login-btn1" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link navbar-login-btn1" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
                </li>
              <!--  <li class="nav-item">
                   <a class="nav-link" href="#">Features</a>
@@ -58,7 +58,7 @@
                   <a class="nav-link" href="#">Blog</a>
                </li>-->
                <li class="nav-item">
-                  <a class="nav-link navbar-login-btn" href="register.html">sign up</a>
+                  <a class="nav-link navbar-login-btn" th:href="@{/register}">Sign Up</a>
                </li>
 
             </ul>
@@ -67,8 +67,7 @@
       </div>
    </nav>
 
-
-
+   <span class="text-green pull-right" th:text="${message}"></span>
 
    <section class="login">
       <div class="col-lg-9 mx-auto">
@@ -85,12 +84,13 @@
                <div class="login-header">
                   <h4 class="">Welcome, please sign in</h4>
                </div>
+               <div id="invalid" th:if="${param.error}" th:text="${'Invalid Login Credentials'}" th:class="${'alert alert-danger text-danger'}"></div>
                <div class="">
                   <form th:action="@{/login}" method="post">
 
                      <div class="form-group position-relative">
                         <input type="text" class="form-control login-input" id="matricNo" name="username"
-                           aria-describedby="matricNo" placeholder="Matric Number" required="">
+                           aria-describedby="matricNo" placeholder="Matric Number/Username" required="">
                         <i class="login-icn flaticon-mail"></i>
                      </div>
 
@@ -103,15 +103,15 @@
                      <div class="form-row pt-3">
                         <div class="col-6">
                            <div class="form-group form-check">
-                              <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
                               <label class="form-check-label" for="exampleCheck1">Remember me</label>
                            </div>
                         </div>
                         <div class="col-6 text-right">
-                           <a href="#!" class="forget-password">Forget password</a>
+                           <a href="#!" class="forget-password">Forgot password</a>
                         </div>
                      </div>
-                     <input type="submit" value="Sign Up" class="login-btn" />
+                     <input type="submit" value="Sign In" class="login-btn" />
                   </form>
                </div>
             </div>

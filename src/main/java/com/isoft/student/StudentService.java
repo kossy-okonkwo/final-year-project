@@ -3,15 +3,17 @@ package com.isoft.student;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
 
 import java.util.List;
 
-@Service
 public interface StudentService {
-	void createEntity(NewStudentCmd s);
-	void modifyEntity(ModifyStudentCmd s);
+	void checkMatricNoOrEmailExist (NewStudentCmd cmd, BindingResult result);
+	void createStudent(NewStudentCmd newStudentCmd);
+	void modifyStudent(ModifyStudentCmd modifyStudentCmd);
 	void deleteStudent(Long id);
-	Student findStudent(Long id);
+	Student findStudentById(Long id);
+	Student findStudentByMatricNo(String matricNo);
 	List<Student> findAllStudents();
-	Page<Student> findAllStudents (Pageable pattern);
+	Page<Student> findAllStudents (String pattern, Pageable pageable);
 }
